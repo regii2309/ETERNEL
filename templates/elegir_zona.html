@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉTERNEL | Elige tu espacio</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/mesas.css') }}">
+</head>
+<body>
+
+<header class="encabezado">
+    <a href="/restaurante" class="marca">ÉTERNEL</a>
+    <a href="/cerrar-sesion" class="cerrar-sesion">Cerrar sesión</a>
+</header>
+
+<main class="contenedor">
+
+    <section class="introduccion">
+        <span class="subtitulo">MAISON DE GASTRONOMIE</span>
+        <h1>Elige tu espacio</h1>
+        <p>
+            Hola, {{ nombre }}. ¿Dónde te gustaría vivir
+            tu experiencia en ÉTERNEL?
+        </p>
+    </section>
+
+    <section class="resumen-seleccion">
+        <div>
+            <span>FECHA</span>
+            <strong>{{ seleccion.fecha }}</strong>
+        </div>
+        <div>
+            <span>HORA</span>
+            <strong>{{ seleccion.hora_inicio }} – {{ seleccion.hora_fin }}</strong>
+        </div>
+        <div>
+            <span>PERSONAS</span>
+            <strong>{{ seleccion.personas }}</strong>
+        </div>
+    </section>
+
+    <div class="zonas">
+
+        <form action="/seleccionar-zona" method="POST" class="zona-form">
+            <input type="hidden" name="zona" value="interior">
+
+            <button type="submit" class="zona-card interior">
+                <div class="zona-imagen imagen-interior"></div>
+                <div class="zona-contenido">
+                    <span>01 · AMBIENTE ELEGANTE</span>
+                    <h2>Interior</h2>
+                    <p>
+                        Disfruta de nuestros salones con arquitectura
+                        colonial, arcos y una atmósfera cálida.
+                    </p>
+                    <strong>16 MESAS</strong>
+                    <div class="zona-enlace">ELEGIR INTERIOR →</div>
+                </div>
+            </button>
+        </form>
+
+        <form action="/seleccionar-zona" method="POST" class="zona-form">
+            <input type="hidden" name="zona" value="exterior">
+
+            <button type="submit" class="zona-card exterior">
+                <div class="zona-imagen imagen-exterior"></div>
+                <div class="zona-contenido">
+                    <span>02 · PATIO COLONIAL</span>
+                    <h2>Exterior</h2>
+                    <p>
+                        Vive una experiencia al aire libre entre
+                        jardines, iluminación cálida y nuestra fuente.
+                    </p>
+                    <strong>12 MESAS</strong>
+                    <div class="zona-enlace">ELEGIR EXTERIOR →</div>
+                </div>
+            </button>
+        </form>
+
+    </div>
+
+    <a href="/reservaciones" class="volver">← Volver al calendario</a>
+
+</main>
+
+<footer>ÉTERNEL · MAISON DE GASTRONOMIE</footer>
+
+</body>
+</html>

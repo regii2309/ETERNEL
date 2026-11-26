@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉTERNEL | Mi cuenta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cuentas.css') }}">
+</head>
+
+<body class="pagina-cuenta">
+
+    <header class="encabezado-cuenta">
+        <a href="/restaurante" class="volver">← Volver al restaurante</a>
+
+        <p>MAISON DE GASTRONOMIE</p>
+        <h1>ÉTERNEL</h1>
+        <span>Tu experiencia comienza aquí</span>
+    </header>
+
+    <main class="contenedor-cuenta">
+
+        <div class="introduccion-cuenta">
+            <span>BIENVENIDO A ÉTERNEL</span>
+            <h2>Una experiencia para recordar</h2>
+            <p>
+                Accede a tu cuenta o crea una nueva
+                para disfrutar de nuestra experiencia gastronómica.
+            </p>
+        </div>
+
+        {% with mensajes = get_flashed_messages(with_categories=true) %}
+            {% if mensajes %}
+                {% for categoria, mensaje in mensajes %}
+                    <div class="mensaje {{ categoria }}">
+                        {{ mensaje }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="opciones-cuenta">
+
+            <!-- INICIAR SESION -->
+            <section class="tarjeta-cuenta" id="login">
+
+                <div class="icono-cuenta">♛</div>
+
+                <span>QUÉ GUSTO TENERTE DE VUELTA</span>
+                <h2>Iniciar sesión</h2>
+
+                <p>Ingresa a tu cuenta para continuar.</p>
+
+                <form action="/iniciar-sesion" method="POST">
+
+                    <label>Correo electrónico</label>
+                    <input
+                        type="email"
+                        name="correo"
+                        placeholder="tu@correo.com"
+                        required
+                    >
+
+                    <label>Contraseña</label>
+                    <input
+                        type="password"
+                        name="contrasena"
+                        placeholder="Tu contraseña"
+                        required
+                    >
+
+                    <button type="submit">
+                        ENTRAR A MI CUENTA
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- CREAR CUENTA -->
+            <section class="tarjeta-cuenta" id="registro">
+
+                <div class="icono-cuenta">✦</div>
+
+                <span>FORMA PARTE DE NUESTRA CASA</span>
+                <h2>Crear cuenta</h2>
+
+                <p>Regístrate y prepárate para reservar.</p>
+
+                <form action="/crear-cuenta" method="POST">
+
+                    <label>Nombre completo</label>
+                    <input
+                        type="text"
+                        name="nombre"
+                        placeholder="Tu nombre completo"
+                        required
+                    >
+
+                    <label>Edad</label>
+                    <input
+                        type="number"
+                        name="edad"
+                        min="18"
+                        max="120"
+                        placeholder="Tu edad"
+                        required
+                    >
+
+                    <label>Teléfono</label>
+                    <input
+                        type="tel"
+                        name="telefono"
+                        placeholder="Tu número de teléfono"
+                        required
+                    >
+
+                    <label>Correo electrónico</label>
+                    <input
+                        type="email"
+                        name="correo"
+                        placeholder="tu@correo.com"
+                        required
+                    >
+
+                    <label>Contraseña</label>
+                    <input
+                        type="password"
+                        name="contrasena"
+                        minlength="8"
+                        placeholder="Mínimo 8 caracteres"
+                        required
+                    >
+
+                    <label>Confirmar contraseña</label>
+                    <input
+                        type="password"
+                        name="confirmar"
+                        minlength="8"
+                        placeholder="Repite tu contraseña"
+                        required
+                    >
+
+                    <button type="submit">
+                        CREAR MI CUENTA
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+        <footer class="pie-cuenta">
+            <h3>ÉTERNEL</h3>
+            <p>MAISON DE GASTRONOMIE</p>
+            <span>Cada historia merece un lugar inolvidable</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

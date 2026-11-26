@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones | ÉTERNEL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+<header class="admin-header">
+    <div>
+        <h1>ÉTERNEL</h1>
+        <p>Administración de reservaciones</p>
+    </div>
+    <a href="{{ url_for('admin_cerrar_sesion') }}">Cerrar sesión</a>
+</header>
+
+<main class="admin-contenido">
+
+    <h2>Reservaciones registradas</h2>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+        {% for categoria, mensaje in mensajes %}
+            <div class="mensaje">{{ mensaje }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <form class="buscador" method="GET" action="{{ url_for('admin_panel') }}">
+        <input
+            type="text"
+            name="q"
+            placeholder="Buscar por folio, nombre o correo..."
+            value="{{ busqueda }}"
+        >
+        <button type="submit">Buscar</button>
+        <a href="{{ url_for('admin_panel') }}">Limpiar</a>
+    </form>
+
+    {% if reservas %}
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Folio</th>
+                        <th>Cliente</th>
+                        <th>Contacto</th>
+                        <th>Fecha</th>
+                        <th>Horario</th>
+                        <th>Zona</th>
+                        <th>Mesa</th>
+                        <th>Personas</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for reserva in reservas %}
+                    <tr>
+                        <td>ET-{{ "%06d"|format(reserva.id) }}</td>
+                        <td>{{ reserva.nombre }}</td>
+                        <td>
+                            {{ reserva.telefono }}<br>
+                            {{ reserva.correo }}
+                        </td>
+                        <td>{{ reserva.fecha }}</td>
+                        <td>
+                            {{ reserva.hora_inicio }} -
+                            {{ reserva.hora_fin }}
+                        </td>
+                        <td>{{ reserva.zona|capitalize }}</td>
+                        <td>{{ reserva.mesa_numero }}</td>
+                        <td>{{ reserva.personas }}</td>
+                        <td>{{ reserva.estado }}</td>
+                        <td>
+                            {% if reserva.estado == "confirmada" %}
+                            <form method="POST"
+                                  action="{{ url_for('admin_eliminar_reserva', reserva_id=reserva.id) }}"
+                                  onsubmit="return confirm('¿Seguro que deseas eliminar esta reservación?');">
+                                <button class="boton-eliminar" type="submit">
+                                    Eliminar
+                                </button>
+                            </form>
+                            {% else %}
+                                <span>Sin acción</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="sin-reservas">No se encontraron reservaciones.</p>
+    {% endif %}
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.pagina-cuenta {
+    min-height: 100vh;
+    background: #25231F;
+    color: #E9DFCC;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* ENCABEZADO */
+
+.encabezado-cuenta {
+    min-height: 270px;
+    padding: 35px 20px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(rgba(20,18,15,.65), rgba(20,18,15,.8)),
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.volver {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    color: #E9DFCC;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.encabezado-cuenta > p {
+    color: #D2B477;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.encabezado-cuenta h1 {
+    color: #E9DFCC;
+    font-size: 58px;
+    font-weight: normal;
+    letter-spacing: 10px;
+    margin: 12px 0;
+}
+
+.encabezado-cuenta span {
+    font-style: italic;
+    font-size: 16px;
+}
+
+/* CONTENIDO */
+
+.contenedor-cuenta {
+    max-width: 1150px;
+    margin: auto;
+    padding: 65px 30px;
+}
+
+.introduccion-cuenta {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.introduccion-cuenta span,
+.tarjeta-cuenta > span {
+    color: #B89A62;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.introduccion-cuenta h2 {
+    color: #D2B477;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 14px 0;
+}
+
+.introduccion-cuenta p {
+    color: #C9BEAA;
+    line-height: 1.7;
+}
+
+/* TARJETAS */
+
+.opciones-cuenta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.tarjeta-cuenta {
+    background: #302D27;
+    border: 1px solid rgba(184,154,98,.35);
+    padding: 38px;
+}
+
+.icono-cuenta {
+    color: #D2B477;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.tarjeta-cuenta h2 {
+    font-size: 30px;
+    color: #E9DFCC;
+    font-weight: normal;
+    margin: 12px 0;
+}
+
+.tarjeta-cuenta > p {
+    color: #C9BEAA;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* FORMULARIOS */
+
+.tarjeta-cuenta form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-cuenta label {
+    color: #D2B477;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    margin: 15px 0 8px;
+}
+
+.tarjeta-cuenta input {
+    width: 100%;
+    padding: 14px;
+    background: #25231F;
+    color: #E9DFCC;
+    border: 1px solid #615744;
+    outline: none;
+    font-size: 14px;
+}
+
+.tarjeta-cuenta input:focus {
+    border-color: #D2B477;
+}
+
+.tarjeta-cuenta input::placeholder {
+    color: #898071;
+}
+
+.tarjeta-cuenta button {
+    margin-top: 25px;
+    padding: 16px;
+    background: #B89A62;
+    color: #25231F;
+    border: 1px solid #B89A62;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.tarjeta-cuenta button:hover {
+    background: transparent;
+    color: #D2B477;
+}
+
+/* MENSAJES */
+
+.mensaje {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    padding: 15px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.mensaje.error {
+    background: #492C27;
+    color: #F1C4B7;
+    border: 1px solid #92564B;
+}
+
+.mensaje.exito {
+    background: #293C2E;
+    color: #C7E5CA;
+    border: 1px solid #547C5A;
+}
+
+/* PIE */
+
+.pie-cuenta {
+    text-align: center;
+    margin-top: 65px;
+    padding: 35px 15px;
+    border-top: 1px solid rgba(184,154,98,.3);
+}
+
+.pie-cuenta h3 {
+    color: #D2B477;
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 5px;
+}
+
+.pie-cuenta p {
+    color: #B89A62;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.pie-cuenta span {
+    color: #C9BEAA;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* CELULARES */
+
+@media (max-width: 750px) {
+    .encabezado-cuenta h1 {
+        font-size: 42px;
+    }
+
+    .volver {
+        position: static;
+        margin-bottom: 25px;
+    }
+
+    .opciones-cuenta {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-cuenta {
+        padding: 25px;
+    }
+
+    .contenedor-cuenta {
+        padding: 45px 18px;
+    }
+
+    .introduccion-cuenta h2 {
+        font-size: 29px;
+    }
+}
+
+
+.boton-cerrar {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 25px;
+    background: #B89A62;
+    color: #25231F;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+

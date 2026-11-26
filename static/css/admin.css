@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #25231F;
+    color: #E9DFCC;
+}
+
+.login-admin {
+    width: 90%;
+    max-width: 420px;
+    margin: 90px auto;
+    padding: 35px;
+    background: #332F29;
+    border: 1px solid #B89A62;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.login-admin h1,
+.admin-header h1 {
+    color: #B89A62;
+    letter-spacing: 5px;
+}
+
+.login-admin p {
+    margin-bottom: 30px;
+}
+
+.login-admin form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 12px;
+}
+
+input {
+    padding: 13px;
+    border: 1px solid #B89A62;
+    border-radius: 5px;
+    background: #25231F;
+    color: #E9DFCC;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    background: #B89A62;
+    color: #25231F;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-admin button {
+    margin-top: 12px;
+}
+
+.login-admin a,
+.buscador a {
+    display: inline-block;
+    margin-top: 22px;
+    color: #B89A62;
+}
+
+.admin-header {
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #B89A62;
+}
+
+.admin-header p {
+    margin-bottom: 0;
+}
+
+.admin-header a {
+    color: #B89A62;
+}
+
+.admin-contenido {
+    padding: 35px 5%;
+}
+
+.admin-contenido h2 {
+    color: #B89A62;
+}
+
+.buscador {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.buscador input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+    background: #332F29;
+}
+
+th,
+td {
+    padding: 14px;
+    border-bottom: 1px solid #625744;
+    text-align: left;
+}
+
+th {
+    color: #B89A62;
+}
+
+.boton-eliminar {
+    background: #8B3939;
+    color: white;
+}
+
+.mensaje {
+    padding: 12px;
+    margin: 15px 0;
+    background: #493D2C;
+    border: 1px solid #B89A62;
+    border-radius: 5px;
+}
+
+.sin-reservas {
+    padding: 25px;
+    text-align: center;
+    background: #332F29;
+}
+
+@media (max-width: 600px) {
+    .admin-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-contenido {
+        padding: 25px 4%;
+    }
+}

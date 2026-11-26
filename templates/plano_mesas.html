@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉTERNEL | Plano de mesas</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/mesas.css') }}">
+</head>
+
+<body>
+
+<header class="encabezado">
+    <a href="/restaurante" class="marca">ÉTERNEL</a>
+    <a href="/cerrar-sesion" class="cerrar-sesion">Cerrar sesión</a>
+</header>
+
+<main class="contenedor plano-contenedor">
+
+    <section class="introduccion">
+        <span class="subtitulo">MAISON DE GASTRONOMIE</span>
+
+        <h1>
+            {% if zona == 'interior' %}
+                Nuestro salón
+            {% else %}
+                Patio colonial
+            {% endif %}
+        </h1>
+
+        <p>
+            Selecciona la mesa que más te guste, {{ nombre }}.
+        </p>
+    </section>
+
+    <section class="resumen-seleccion">
+        <div>
+            <span>FECHA</span>
+            <strong>{{ seleccion.fecha }}</strong>
+        </div>
+
+        <div>
+            <span>HORARIO</span>
+            <strong>{{ seleccion.hora_inicio }} – {{ seleccion.hora_fin }}</strong>
+        </div>
+
+        <div>
+            <span>PERSONAS</span>
+            <strong>{{ seleccion.personas }}</strong>
+        </div>
+    </section>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+        {% if mensajes %}
+            <div class="mensajes">
+                {% for categoria, mensaje in mensajes %}
+                    <div class="mensaje {{ categoria }}">{{ mensaje }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <section class="leyenda">
+        <div><span class="color-disponible"></span> Disponible</div>
+        <div><span class="color-ocupada"></span> Ocupada</div>
+        <div><span class="color-incompatible"></span> Capacidad insuficiente</div>
+    </section>
+
+    <section class="plano">
+
+        {% if zona == 'interior' %}
+
+            <div class="decoracion-superior">
+                <span>✦ SALÓN PRINCIPAL ✦</span>
+            </div>
+
+            <div class="plano-interior">
+                {% for mesa in mesas %}
+                    <form action="/confirmar-mesa" method="POST"
+                          class="mesa-form">
+
+                        <input type="hidden" name="mesa_numero"
+                               value="{{ mesa.numero }}">
+
+                        <button
+                            type="submit"
+                            class="mesa {{ mesa.estado }}"
+                            {% if mesa.estado != 'disponible' %}disabled{% endif %}
+                        >
+                            <span class="mesa-numero">MESA {{ mesa.numero }}</span>
+                            <span class="mesa-icono">✦</span>
+                            <span class="mesa-capacidad">
+                                {{ mesa.capacidad }} PERSONAS
+                            </span>
+                            <span class="mesa-estado">
+                                {% if mesa.estado == 'disponible' %}
+                                    Disponible
+                                {% elif mesa.estado == 'ocupada' %}
+                                    Ocupada
+                                {% else %}
+                                    Capacidad insuficiente
+                                {% endif %}
+                            </span>
+                        </button>
+                    </form>
+                {% endfor %}
+            </div>
+
+            <div class="decoracion-inferior">
+                <span>ENTRADA PRINCIPAL</span>
+            </div>
+
+        {% else %}
+
+            <div class="decoracion-superior">
+                <span>✦ PATIO DE LA HACIENDA ✦</span>
+            </div>
+
+            <div class="plano-exterior">
+
+                <div class="fuente">
+                    <span>✧</span>
+                    <strong>FUENTE</strong>
+                    <small>COLONIAL</small>
+                    <span>✧</span>
+                </div>
+
+                {% for mesa in mesas %}
+                    <form action="/confirmar-mesa" method="POST"
+                          class="mesa-form">
+
+                        <input type="hidden" name="mesa_numero"
+                               value="{{ mesa.numero }}">
+
+                        <button
+                            type="submit"
+                            class="mesa {{ mesa.estado }}"
+                            {% if mesa.estado != 'disponible' %}disabled{% endif %}
+                        >
+                            <span class="mesa-numero">MESA {{ mesa.numero }}</span>
+                            <span class="mesa-icono">✦</span>
+                            <span class="mesa-capacidad">
+                                {{ mesa.capacidad }} PERSONAS
+                            </span>
+                            <span class="mesa-estado">
+                                {% if mesa.estado == 'disponible' %}
+                                    Disponible
+                                {% elif mesa.estado == 'ocupada' %}
+                                    Ocupada
+                                {% else %}
+                                    Capacidad insuficiente
+                                {% endif %}
+                            </span>
+                        </button>
+                    </form>
+                {% endfor %}
+
+            </div>
+
+            <div class="decoracion-inferior">
+                <span>JARDINES · PATIO COLONIAL · FUENTE</span>
+            </div>
+
+        {% endif %}
+
+        <div class="barra-decorativa">
+            <span>ÉTERNEL</span>
+            <span>MAISON DE GASTRONOMIE</span>
+            <span>BAR DE BEBIDAS</span>
+        </div>
+
+    </section>
+
+    <p class="nota-plano">
+        Selecciona una mesa verde para confirmar tu reservación.
+        Las mesas moradas ya están reservadas en este horario.
+    </p>
+
+    <a href="/elegir-zona" class="volver">← Cambiar de zona</a>
+
+</main>
+
+<footer>ÉTERNEL · MAISON DE GASTRONOMIE</footer>
+
+</body>
+</html>

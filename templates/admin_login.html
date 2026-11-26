@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | ÉTERNEL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+<div class="login-admin">
+    <h1>ÉTERNEL</h1>
+    <p>Panel de administración</p>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+        {% for categoria, mensaje in mensajes %}
+            <div class="mensaje">{{ mensaje }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('admin_panel') }}">
+        <label>Usuario</label>
+        <input type="text" name="usuario" required>
+
+        <label>Contraseña</label>
+        <input type="password" name="contrasena" required>
+
+        <button type="submit">Entrar al panel</button>
+    </form>
+
+    <a href="{{ url_for('inicio') }}">Volver al sitio</a>
+</div>
+
+</body>
+</html>

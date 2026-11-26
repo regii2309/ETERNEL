@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉTERNEL | Nuestra carta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body class="pagina-menu">
+
+    <aside class="barra-lateral">
+        <div class="logo-lateral">
+            <span>MAISON DE GASTRONOMIE</span>
+            <h2>ÉTERNEL</h2>
+        </div>
+
+        <nav>
+            <a href="/restaurante#inicio">Inicio</a>
+            <a href="/restaurante#nosotros">Nosotros</a>
+            <a href="/menu" class="activo">Menú</a>
+            <a href="/restaurante#galeria">Galería</a>
+            <a href="/restaurante#reservaciones">Reservaciones</a>
+            <a href="/restaurante#cuenta">Mi cuenta</a>
+        </nav>
+
+        <div class="pie-lateral">
+            <p>Una experiencia inolvidable</p>
+        </div>
+    </aside>
+
+
+    <main class="contenido">
+
+        <header class="encabezado-menu">
+            <span>MAISON DE GASTRONOMIE</span>
+            <h1>Nuestra carta</h1>
+            <p>
+                Tres culturas, tres formas de vivir,
+                un solo lugar para disfrutar.
+            </p>
+        </header>
+
+
+        <!-- ENTRADAS -->
+        <section class="seccion-menu">
+            <div class="titulo-seccion">
+                <span>PARA COMENZAR</span>
+                <h2>Entradas</h2>
+            </div>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85" alt="Queso fundido">
+                    <div class="texto-tarjeta">
+                        <span>MÉXICO</span>
+                        <h3>Queso fundido</h3>
+                        <p>Queso derretido acompañado de tortillas y un toque de nuestra casa.</p>
+                        <strong>$95 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="Sopa">
+                    <div class="texto-tarjeta">
+                        <span>FRANCIA</span>
+                        <h3>Sopa de cebolla</h3>
+                        <p>Clásica sopa francesa con cebolla caramelizada y queso gratinado.</p>
+                        <strong>$110 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=900&q=85" alt="Bruschetta">
+                    <div class="texto-tarjeta">
+                        <span>ITALIA</span>
+                        <h3>Bruschetta clásica</h3>
+                        <p>Pan tostado con tomate fresco, albahaca y aceite de oliva.</p>
+                        <strong>$85 MXN</strong>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- PLATOS FUERTES -->
+        <section class="seccion-menu">
+            <div class="titulo-seccion">
+                <span>EL CORAZÓN DE NUESTRA COCINA</span>
+                <h2>Platos fuertes</h2>
+            </div>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://www.puebla.gob.mx/media/k2/attachments/WhatsApp_Image_2025-05-29_at_9.23.43_AM.jpeg" alt="Mole poblano">
+                    <div class="texto-tarjeta">
+                        <span>MÉXICO</span>
+                        <h3>Mole poblano</h3>
+                        <p>Tradicional mole poblano con una mezcla especial de chiles y especias.</p>
+                        <strong>$185 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=900&q=85" alt="Tacos">
+                    <div class="texto-tarjeta">
+                        <span>MÉXICO</span>
+                        <h3>Tacos de cochinita</h3>
+                        <p>Cochinita pibil preparada al estilo tradicional, con cebolla morada.</p>
+                        <strong>$145 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85" alt="Fish and chips">
+                    <div class="texto-tarjeta">
+                        <span>INGLATERRA</span>
+                        <h3>Fish &amp; Chips</h3>
+                        <p>Pescado crujiente acompañado de papas doradas.</p>
+                        <strong>$165 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?auto=format&fit=crop&w=900&q=85" alt="Boeuf bourguignon">
+                    <div class="texto-tarjeta">
+                        <span>FRANCIA</span>
+                        <h3>Boeuf Bourguignon</h3>
+                        <p>Estofado de res cocinado lentamente con vino y vegetales.</p>
+                        <strong>$195 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85" alt="Ratatouille">
+                    <div class="texto-tarjeta">
+                        <span>FRANCIA</span>
+                        <h3>Ratatouille</h3>
+                        <p>Selección de vegetales de temporada con hierbas aromáticas.</p>
+                        <strong>$155 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85" alt="Chile en nogada">
+                    <div class="texto-tarjeta">
+                        <span>MÉXICO</span>
+                        <h3>Chile en nogada</h3>
+                        <p>Chile poblano relleno, bañado en nogada y acompañado de granada.</p>
+                        <strong>$190 MXN</strong>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- POSTRES -->
+        <section class="seccion-menu">
+            <div class="titulo-seccion">
+                <span>UN FINAL INOLVIDABLE</span>
+                <h2>Postres</h2>
+            </div>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?auto=format&fit=crop&w=900&q=85" alt="Crème brûlée">
+                    <div class="texto-tarjeta">
+                        <span>FRANCIA</span>
+                        <h3>Crème brûlée</h3>
+                        <p>Crema suave de vainilla con una delicada capa de caramelo.</p>
+                        <strong>$95 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85" alt="Postre de la casa">
+                    <div class="texto-tarjeta">
+                        <span>CREACIÓN ÉTERNEL</span>
+                        <h3>Hacienda Dorada</h3>
+                        <p>Postre especial de la casa con sabores dulces y una presentación elegante.</p>
+                        <strong>$105 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=900&q=85" alt="Sticky toffee pudding">
+                    <div class="texto-tarjeta">
+                        <span>INGLATERRA</span>
+                        <h3>Sticky Toffee Pudding</h3>
+                        <p>Bizcocho suave de dátil acompañado de salsa de caramelo.</p>
+                        <strong>$100 MXN</strong>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- BEBIDAS -->
+        <section class="seccion-menu">
+            <div class="titulo-seccion">
+                <span>PARA ACOMPAÑAR</span>
+                <h2>Bebidas</h2>
+            </div>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85" alt="Agua fresca">
+                    <div class="texto-tarjeta">
+                        <span>MÉXICO</span>
+                        <h3>Agua de temporada</h3>
+                        <p>Agua fresca preparada con frutas naturales de temporada.</p>
+                        <strong>$45 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85" alt="Café">
+                    <div class="texto-tarjeta">
+                        <span>ÉTERNEL</span>
+                        <h3>Café de la casa</h3>
+                        <p>Café aromático seleccionado para disfrutar después de comer.</p>
+                        <strong>$55 MXN</strong>
+                    </div>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1000&q=85" alt="Limonada">
+                    <div class="texto-tarjeta">
+                        <span>INTERNACIONAL</span>
+                        <h3>Limonada artesanal</h3>
+                        <p>Limonada fresca preparada al momento.</p>
+                        <strong>$50 MXN</strong>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <div class="volver-restaurante">
+            <a href="/restaurante" class="boton-dorado">
+                VOLVER AL RESTAURANTE
+            </a>
+        </div>
+
+
+        <footer class="pie-pagina">
+            <h2>ÉTERNEL</h2>
+            <p>MAISON DE GASTRONOMIE</p>
+            <span>Cada historia merece un lugar inolvidable</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

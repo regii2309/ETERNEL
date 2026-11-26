@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉTERNEL | Reservaciones</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/reservas.css') }}">
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <a href="/restaurante" class="marca">ÉTERNEL</a>
+
+        <a href="/cerrar-sesion" class="cerrar-sesion">
+            Cerrar sesión
+        </a>
+    </header>
+
+    <main class="contenedor">
+
+        <section class="introduccion">
+            <span class="subtitulo">MAISON DE GASTRONOMIE</span>
+
+            <h1>Tu momento, nuestro espacio</h1>
+
+            <p>
+                Hola, {{ nombre }}. Nos alegra recibirte.
+                Elige el día y horario para vivir tu experiencia
+                en ÉTERNEL.
+            </p>
+        </section>
+
+        {% with mensajes = get_flashed_messages(with_categories=true) %}
+            {% if mensajes %}
+                <div class="mensajes">
+                    {% for categoria, mensaje in mensajes %}
+                        <div class="mensaje {{ categoria }}">
+                            {{ mensaje }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="tarjeta-reserva">
+
+            <div class="titulo-tarjeta">
+                <span class="numero-paso">01</span>
+
+                <div>
+                    <h2>Fecha y horario</h2>
+                    <p>Selecciona cuándo deseas visitarnos.</p>
+                </div>
+            </div>
+
+            <form action="/continuar-reservacion" method="POST">
+
+                <div class="campos">
+
+                    <div class="campo">
+                        <label for="fecha">Fecha de visita</label>
+
+                        <input
+                            type="date"
+                            id="fecha"
+                            name="fecha"
+                            min="{{ fecha_minima }}"
+                            required
+                            value="{{ seleccion.fecha if seleccion else '' }}"
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="hora">Hora de llegada</label>
+
+                        <select id="hora" name="hora" required>
+                            <option value="">Selecciona un horario</option>
+
+                            {% for hora in horarios %}
+                                <option
+                                    value="{{ hora }}"
+                                    {% if seleccion and seleccion.hora_inicio == hora %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    {{ hora }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="personas">Número de personas</label>
+
+                        <select id="personas" name="personas" required>
+                            {% for cantidad in range(1, 9) %}
+                                <option
+                                    value="{{ cantidad }}"
+                                    {% if seleccion and seleccion.personas == cantidad %}
+                                        selected
+                                    {% elif not seleccion and cantidad == 2 %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    {{ cantidad }}
+                                    {% if cantidad == 1 %}
+                                        persona
+                                    {% else %}
+                                        personas
+                                    {% endif %}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="informacion-horario">
+                    <div>
+                        <span class="etiqueta">Horario de atención</span>
+                        <strong>10:00 a. m. – 12:00 a. m.</strong>
+                    </div>
+
+                    <div>
+                        <span class="etiqueta">Duración de tu visita</span>
+                        <strong>2 horas</strong>
+                    </div>
+                </div>
+
+                <button type="submit" class="boton-continuar">
+                    Continuar con mi reservación
+                </button>
+
+            </form>
+        </section>
+
+        {% if seleccion %}
+            <section class="resumen">
+                <span class="subtitulo">TU SELECCIÓN</span>
+
+                <h2>¡Vamos muy bien!</h2>
+
+                <p>
+                    Fecha:
+                    <strong>{{ seleccion.fecha }}</strong>
+                </p>
+
+                <p>
+                    Llegada:
+                    <strong>{{ seleccion.hora_inicio }}</strong>
+                </p>
+
+                <p>
+                    Salida:
+                    <strong>{{ seleccion.hora_fin }}</strong>
+                </p>
+
+                <p>
+                    Personas:
+                    <strong>{{ seleccion.personas }}</strong>
+                </p>
+
+                <p class="nota">
+                    Tu selección está guardada temporalmente.
+                    El siguiente paso será elegir tu zona y mesa.
+                </p>
+            </section>
+        {% endif %}
+
+    </main>
+
+    <footer>
+        ÉTERNEL · MAISON DE GASTRONOMIE
+    </footer>
+
+</body>
+</html>

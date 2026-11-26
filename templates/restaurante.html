@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉTERNEL | Restaurante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body class="pagina-restaurante">
+
+    <aside class="barra-lateral">
+        <div class="logo-lateral">
+            <span>MAISON DE GASTRONOMIE</span>
+            <h2>ÉTERNEL</h2>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="/menu">Menú</a>
+            <a href="#galeria">Galería</a>
+            <a href="#reservaciones">Reservaciones</a>
+            <a href="/cuenta">Mi cuenta</a>
+        </nav>
+
+        <div class="pie-lateral">
+            <p>Una experiencia inolvidable</p>
+        </div>
+    </aside>
+
+
+    <main class="contenido">
+
+        <!-- INICIO -->
+        <section id="inicio" class="seccion-inicio">
+            <div class="texto-inicio">
+                <span>BIENVENIDO A ÉTERNEL</span>
+                <h1>El arte de disfrutar</h1>
+                <p>
+                    Tres culturas, tres formas de vivir,
+                    un solo lugar para disfrutar.
+                </p>
+                <a href="#reservaciones" class="boton-dorado">
+                    RESERVAR UNA MESA
+                </a>
+            </div>
+        </section>
+
+
+        <!-- NOSOTROS -->
+        <section id="nosotros" class="seccion nosotros">
+            <div class="titulo-seccion">
+                <span>CONOCE NUESTRA HISTORIA</span>
+                <h2>Un lugar extraordinario</h2>
+            </div>
+
+            <div class="contenido-nosotros">
+                <div class="texto-nosotros">
+                    <p>
+                        En ÉTERNEL creemos que cada comida merece convertirse
+                        en un recuerdo inolvidable.
+                    </p>
+
+                    <p>
+                        Nuestra esencia combina la riqueza de la gastronomía
+                        mexicana con la elegancia de la cocina francesa
+                        y el encanto de la tradición inglesa.
+                    </p>
+
+                    <p>
+                        Disfruta de un ambiente inspirado en las antiguas
+                        haciendas mexicanas, rodeado de arquitectura,
+                        naturaleza y una atención especial.
+                    </p>
+                </div>
+
+                <div class="imagen-nosotros"></div>
+            </div>
+        </section>
+
+
+        <!-- PLATILLOS DESTACADOS -->
+        <section id="platillos" class="seccion destacados">
+            <div class="titulo-seccion">
+                <span>UNA MUESTRA DE NUESTRA COCINA</span>
+                <h2>Platillos destacados</h2>
+                <p>
+                    Descubre algunos de los sabores que hacen especial
+                    nuestra experiencia.
+                </p>
+            </div>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85"
+                        alt="Entrada gourmet">
+
+                    <div class="texto-tarjeta">
+                        <span>PARA COMENZAR</span>
+                        <h3>Entradas</h3>
+                        <p>
+                            Pequeñas creaciones llenas de sabor para
+                            despertar tus sentidos.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="tarjeta">
+                    <img
+                        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+                        alt="Plato fuerte">
+
+                    <div class="texto-tarjeta">
+                        <span>EL CORAZÓN DE LA EXPERIENCIA</span>
+                        <h3>Platos fuertes</h3>
+                        <p>
+                            Recetas mexicanas y europeas preparadas
+                            con ingredientes seleccionados.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="tarjeta">
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
+                        alt="Postre">
+
+                    <div class="texto-tarjeta">
+                        <span>UN FINAL PERFECTO</span>
+                        <h3>Postres</h3>
+                        <p>
+                            Dulces creaciones para terminar
+                            tu visita con un recuerdo especial.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="contenedor-boton-menu">
+                <a href="/menu" class="boton-dorado">
+                    DESCUBRIR MENÚ COMPLETO
+                </a>
+            </div>
+        </section>
+
+
+        <!-- GALERÍA -->
+        <section id="galeria" class="seccion">
+            <div class="titulo-seccion">
+                <span>CONOCE NUESTROS ESPACIOS</span>
+                <h2>Galería</h2>
+            </div>
+
+            <div class="galeria">
+                <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+                    alt="Interior del restaurante">
+
+                <img
+                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85"
+                    alt="Mesa elegante">
+
+                <img
+                    src="https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?auto=format&fit=crop&w=900&q=85"
+                    alt="Experiencia gastronómica">
+            </div>
+        </section>
+
+
+        <!-- RESERVACIONES -->
+        <section id="reservaciones" class="seccion seccion-reservaciones">
+            <div class="titulo-seccion">
+                <span>VIVE LA EXPERIENCIA</span>
+                <h2>Reservaciones</h2>
+                <p>
+                    Estamos preparados para recibirte y hacer de tu visita
+                    un momento especial.
+                </p>
+
+                <a href="/cuenta" class="boton-dorado">
+                    RESERVAR
+                </a>
+            </div>
+        </section>
+
+
+        <footer class="pie-pagina">
+            <h2>ÉTERNEL</h2>
+            <p>MAISON DE GASTRONOMIE</p>
+            <span>Cada historia merece un lugar inolvidable</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>
